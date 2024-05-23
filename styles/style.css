@@ -1,0 +1,709 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2em;
+    background-color:  white;
+    max-height: 80px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+header h2 {
+    padding-left: 1em;
+
+}
+
+header button {
+    margin-right: 1em;
+    width: 10vw;
+    
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button, a {
+    width: 25vw;
+    padding: .5em 1em;
+    margin: .5em 0em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover, a:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+}
+
+td {
+    word-wrap: break-word;
+    
+
+}
+
+table {
+    padding-top: 10px;
+}
+
+.taskCell{
+    max-width: 200px;
+}
+
+.tagCell{
+    max-width: 20px;
+
+}
+
+.detailCell{
+    
+    max-width: 60px;
+
+}
+
+.warning {
+    color: red;
+    font-size: .5em;
+    text-align: center;
+}
+
+.warning2 {
+    color: red;
+    font-size: .8em;
+    text-align: center;
+}
+
+.welcomeMessage {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 1.2em;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    margin-top: 20px;
+}
+
+.formcontainer {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 3em;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.taskcontainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 3em;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    
+    
+}
+
+/* Positions labels such that they are off-screen and not visible to users, but they are technically still in the html document and able to be
+read by screen readers */
+.hiddenLabel {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap; /* For older browsers */
+}
+
+.input-field {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+   
+}
+
+.textfield{
+   align-self: center;
+   font-size: 2em;
+   display: flex;
+   flex-direction: column;
+   
+}
+
+.textfield2{
+    font-size: 1em;
+    padding-bottom: 10px;
+    font-weight:bold;
+}
+
+.taskfield{
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#login, #pass, #email, #pass2 {
+    width: 23vw;
+    padding: .5em 1em;
+    border-radius: 7px;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+
+
+.checkbox {
+    margin-bottom: 10px;
+}
+
+.addTask{
+    align-self: end;
+    width: 5vw;
+    min-width: 160px;
+    
+}
+
+.detailButton{
+    display: flex;
+    align-self: end;
+    padding: .4em;
+    margin-top: 10px;
+}
+
+.newTask {
+    display: none;
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    /* transform: translate(-50%, -50%); */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    z-index: 2;
+    cursor: move; 
+}
+
+.expandTask {
+    display: none;
+    cursor: move; 
+    position: fixed;
+    top: 15%;
+    left: 70%;
+    /* transform: translate(-50%, -50%); */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    z-index: 2;
+    
+}
+
+.searchResultsContainer {
+
+
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 3em;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    align-items: left;
+    justify-content: left;
+    
+}
+
+.searchCheckBoxContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+
+
+}
+
+#footer{
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+    .formcontainer {
+        max-width: 230px;
+        margin: 20px auto;
+        padding: 3em;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-shrink: 1;
+        font-size: .8em;
+        
+    }
+
+    .taskcontainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 230px;
+        margin: 20px auto;
+        padding: 2em;
+        font-size: .5em;
+        
+        
+    }
+
+    .newTask {
+        top: 15%;
+        left: 5%;
+    
+    }
+    
+    .expandTask {
+        top: 10%;
+        left: 10%;
+        
+    }
+
+    #login, #pass, #email, #pass2{
+        width: 20vw;
+        padding: .5em 1em;
+        border-radius: 7px;
+        border: 1px solid black;
+        font-size: .5em;
+    }
+
+    #loginForm #login{
+        margin-top: 10px;
+    }
+    
+    #registerForm #email{
+        margin-top: 10px;
+    }
+
+    #taskName, #tag, #description{
+        font-size: 1.2em;
+    }
+
+    #expandName, #expandTag, #expandDesc{
+        font-size: 1.2em;
+    }
+
+    .textfield2{
+        font-size: 10px;
+        padding-bottom: 10px;
+        font-weight:bold;
+    }
+
+    .newTask button{
+        font-size: 1.3em;
+    }
+    .expandTask button{
+        font-size: .5em;
+    }
+
+    .expandTask h2{
+        font-size: .8em;
+    }
+
+    #searchQuery{
+        font-size: .8em;
+    }
+    
+    .welcomeMessage{
+        font-size: .8em;
+    }
+    button, .registerButton{
+        font-size: .85em;
+    }
+
+    button, .loginButton{
+        font-size: .85em;
+    }
+
+    .warning {
+        color: red;
+        font-size: .4em;
+        align-self: center;
+        max-width: 90px;
+        text-wrap: wrap;
+        padding: 0;
+    }
+
+    .warning2 {
+        font-size: 1em;
+    }
+    
+    header {
+        font-size: 1em;
+        background-color:  white;
+        max-height: 60px;
+
+    }
+    .logoutButton{
+        font-size: .6em;
+        width: 60px;
+    }
+
+    .detailButton{
+        max-width: 30px;
+        padding: .5em;
+    }
+    
+    .addTask{
+        align-self: center;
+        min-width: 30%;
+    }
+
+    hr{
+        margin: .7em;
+    }
+  
+    #footer {
+        font-size: 70%;
+    }
+    
+    .searchBarForm{
+        font-size: .6em;
+        gap: .5em;
+    }
+
+    .searchResultsHeader{
+        font-size: 1.4em;
+    }
+
+    .searchResultsContainer{
+        font-size: .8em;
+        max-width: 300px;
+
+    }
+
+
+    .taskCell{
+        max-width: 200px;
+    }
+    
+    .tagCell{
+        max-width: 50px;
+    
+    }
+
+    .checkbox .warning{
+        font-size: .8em;
+        max-width: 250px;
+    }
+    
+}
+
+
+
+
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+    .formcontainer {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 3em;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        font-size: 1em;
+    }
+
+    header {
+        font-size: 1.2em;
+        background-color:  white;
+        max-height: 60px;
+
+    }
+
+    .welcomeMessage{
+        font-size: 1em;
+    }
+    
+    
+    .addTask{
+        align-self: end;
+        min-width:20%;
+    }
+    .taskcontainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 2em;
+        font-size: .8em;
+        
+        
+    }
+
+    #taskName, #tag, #description{
+        font-size: 1.2em;
+    }
+
+    #expandName, #expandTag, #expandDesc{
+        font-size: 1.2em;
+    }
+    
+
+    .textfield2 label{
+        font-size: 1.2em;
+    }
+    
+    .newTask button{
+        font-size: 1em;
+    }
+    .expandTask button{
+        font-size: .8em;
+    }
+
+    .expandTask h2{
+        font-size: 1.3em;
+    }
+
+
+    .detailCell{
+        max-width: 100%;
+    }
+
+    .detailButton{
+        max-width: 60px;
+    }
+    
+    .logoutButton{
+        width: 80px;
+    }
+
+
+    .warning {
+        color: red;
+        font-size: .5em;
+        text-align: center;
+        max-width: 170px;
+        text-wrap: wrap;
+    }
+    
+    .warning2 {
+        font-size: 1.2em;
+    }
+
+    
+    button, .registerButton{
+        font-size: 1em;
+    }
+
+    button, .loginButton{
+        font-size: 1em;
+    }
+
+
+    #footer {
+        font-size: 90%;
+    }
+
+    .searchBarForm{
+        font-size: .9em;
+        gap: .5em;
+    }
+
+    .searchBarForm button{
+        font-size: .8em;
+    }
+
+    .searchResultsContainer{
+        font-size: .9em;
+        max-width: 500px;
+    }
+
+    .searchResultsHeader{
+        font-size: 1.8em;
+    }
+
+    .taskCell{
+        max-width: 300px;
+    }
+    
+    .tagCell{
+        max-width: 50px;
+    
+    }
+
+    .checkbox .warning{
+        font-size: 1em;
+        max-width: 250px;
+    }
+
+}
+
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+
+    .formcontainer {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 3em;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        font-size: 1em;
+    }
+
+
+    .taskcontainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 3em;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        font-size: 1em;
+        
+        
+    }
+
+
+
+    #taskName, #tag, #description{
+        font-size: 1.4em;
+    }
+
+    #expandName, #expandTag, #expandDesc{
+        font-size: 1.4em;
+    }
+
+    header {
+        font-size: 2em;
+        max-height: 80px;
+    
+    }
+    
+
+    .searchBarForm{
+        font-size: 1.2em;
+        gap: .5em;
+    }
+
+    .welcomeMessage{
+        font-size: 1.2em;
+    }
+
+    .logoutButton{
+        width: 120px;
+        font-size: .5em;
+    }
+
+    .detailButton{
+        max-width: 70px;
+    }
+
+    .textfield2 label{
+        font-size: 1.5em;
+    }
+
+    .expandTask h2{
+        font-size: 1.5em;
+    }
+
+    .newTask button{
+        font-size: 1em;
+    }
+    .expandTask button{
+        font-size: 1em;
+    }
+
+    .warning {
+        color: red;
+        font-size: .5em;
+        text-align: center;
+        text-wrap: nowrap;
+        max-width: 100%;
+    }
+    
+    .warning2 {
+        color: red;
+        font-size: 1.4em;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+
+    button, .registerButton{
+        font-size: 1em;
+    }
+
+    button, .loginButton{
+        font-size: 1em;
+    }
+
+    .searchResultsHeader{
+        font-size: 2em;
+    }
+
+    .searchResultsContainer{
+        font-size: 1em;
+        max-width:1000px;
+    }
+
+    #footer {
+        font-size: 100%;
+    }
+    .taskCell{
+        max-width: 400px;
+    }
+    
+    .tagCell{
+        max-width: 100px;
+    
+    }
+
+    .checkbox .warning{
+       
+        max-width: 400px;
+    }
+}
+
